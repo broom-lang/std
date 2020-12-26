@@ -18,29 +18,29 @@ the {:
 } {
     t = __int32 ();
 
-    (==) = {| a, b -> __int32Eq a b};
+    (==) = {| a b -> __int32Eq a b};
 
-    (<) = {| a, b -> __int32Lt a b};
-    (<=) = {| a, b -> __int32Le a b};
-    (>) = {| a, b -> __int32Gt a b};
-    (>=) = {| a, b -> __int32Ge a b};
+    (<) = {| a b -> __int32Lt a b};
+    (<=) = {| a b -> __int32Le a b};
+    (>) = {| a b -> __int32Gt a b};
+    (>=) = {| a b -> __int32Ge a b};
 
-    (+) = {| a, b -> __int32Add a b {
+    (+) = {| a b -> __int32Add a b {
         | res -> res
         | () -> __panic "overflow"
     }};
 
-    (-) = {| a, b -> __int32Sub a b {
+    (-) = {| a b -> __int32Sub a b {
         | res -> res
         | () -> __panic "overflow"
     }};
 
-    (*) = {| a, b -> __int32Mul a b {
+    (*) = {| a b -> __int32Mul a b {
         | res -> res
         | () -> __panic "overflow"
     }};
 
-    (/) = {| a, b -> __int32Div a b {
+    (/) = {| a b -> __int32Div a b {
         | res -> res
         | () -> __panic "overflow"
         | () -> __panic "divide by zero"

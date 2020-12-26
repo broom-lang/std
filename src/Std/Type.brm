@@ -2,7 +2,7 @@
 
 t = __type ();
 
-the = {| t, v -> v : t}
+the = {| t v -> v : t}
 
 }
 
