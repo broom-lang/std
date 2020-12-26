@@ -1,0 +1,14 @@
+{t = type; the} with _ = require "./Type";
+
+the {:
+    t : type;
+
+    True : t;
+    False : t;
+} {
+    t = __bool ();
+
+    True = __true ();
+    False = __false ();
+}
+
