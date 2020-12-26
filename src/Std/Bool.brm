@@ -3,12 +3,46 @@
 the {:
     t : type;
 
+    -- TODO: Prismify these:
     True : t;
     False : t;
+
+    (==) : (:t, t) -> t
+
+    not : t -> t;
+    (&&) : (:t, (:) -> t) -> t;
+    (||) : (:t, (:) -> t) -> t;
+
+    if : (a : type) => (:t, (:) -> a, (:) -> a);
+    when : (:t, (:) -> (:)) -> (:);
 } {
     t = __bool ();
 
     True = __true ();
     False = __false ();
+
+    (==) = {| a, b -> __boolEq a b};
+
+    not = {| b -> __boolNot b};
+
+    (&&) = {
+        | __false (), _ -> False
+        | __true (), thunk -> thunk ()
+    };
+
+    (||) = {
+        | __false (), thunk -> thunk ()
+        | __true (), _ -> True
+    };
+
+    if = {
+        | __false (), _, else -> else ()
+        | __true (), then, _ -> then ()
+    };
+
+    when = {
+        | __false (), _ -> ()
+        | __then (), body -> body ()
+    };
 }
 
