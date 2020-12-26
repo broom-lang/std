@@ -28,22 +28,22 @@ the {:
     (+) = {| a, b -> __int32Add a b {
         | res -> res
         | () -> __panic "overflow"
-    };
+    }};
 
     (-) = {| a, b -> __int32Sub a b {
         | res -> res
         | () -> __panic "overflow"
-    };
+    }};
 
     (*) = {| a, b -> __int32Mul a b {
         | res -> res
         | () -> __panic "overflow"
-    };
+    }};
 
     (/) = {| a, b -> __int32Div a b {
         | res -> res
         | () -> __panic "overflow"
         | () -> __panic "divide by zero"
-    };
+    }};
 }
 
