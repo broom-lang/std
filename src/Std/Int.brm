@@ -1,2 +1,2 @@
-Int32
+require "./Int32" -- TODO: Make conditional on target platform.
 
